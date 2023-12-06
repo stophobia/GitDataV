@@ -1,26 +1,26 @@
 # GitDataV
 
- GitDataV，是一个github“大数据可视化平台”，通过它你可以更直观的看到你在github里的一些数据：  
- 个人信息(✔)，仓库stars情况(✔)，仓库语言分类(✔)  
- 仓库公开数量(✔)、粉丝数量(✔)、跟随数量(✔)、仓库数据(✔)、最近你的操作(✔)  
- 最近的粉丝(✔)、最近的跟随(✔)、最新信息(✔)  
-左上角箭头小彩蛋： 全屏(✔)、 国际化语言切换（✔）、返回首页（✔）、皮肤切换（开发中..） 
+GitDataV is a github "big data visualization platform" through which you can more intuitively see some of your data in github:
+- Personal information (✔), warehouse stars status (✔), warehouse language classification (✔)
+- Warehouse public number (✔), number of fans (✔), number of followers (✔), warehouse data (✔), recent operations (✔)
+- Recent fans (✔), recent followers (✔), latest information (✔)
+Small easter egg with arrow in the upper left corner: full screen (✔), international language switching (✔), return to home page (✔), skin switching (under development...)
 
 
-[GitDataV在线演示使用](https://hongqingcao.github.io/GitDataV/)
+[GitDataV online demonstration use](https://hongqingcao.github.io/GitDataV/)
 
-（ps:在线演示为dev.1.0版本,更多功能，可切换dev.2.0或者master分支clone本地运行）
+(ps: The online demonstration is dev.1.0 version, with more functions, you can switch to dev.2.0 or master branch clone to run locally)
 
-###### ![实例效果](https://user-gold-cdn.xitu.io/2018/8/24/1656c59629551995?w=1954&h=934&f=gif&s=3919397)
-###### ![实例效果](https://user-gold-cdn.xitu.io/2019/7/9/16bd4cd0238a41ba?w=1897&h=940&f=png&s=494477)
+###### ![Instance effect](https://user-gold-cdn.xitu.io/2018/8/24/1656c59629551995?w=1954&h=934&f=gif&s=3919397)
+###### ![Instance effect](https://user-gold-cdn.xitu.io/2019/7/9/16bd4cd0238a41ba?w=1897&h=940&f=png&s=494477)
  
-### 开发日志
+### Development log
 
 - [2018-09 DEV1.0](https://github.com/HongqingCao/GitDataV/tree/dev1.0)
-- [2019-05 DEV2.0 重构](https://github.com/HongqingCao/GitDataV/tree/dev2.0)
-- [2019-08 DEV2.0 添加数字滚动效果](https://github.com/HongqingCao/GitDataV/tree/dev2.0)
+- [2019-05 DEV2.0 Refactor](https://github.com/HongqingCao/GitDataV/tree/dev2.0)
+- [2019-08 DEV2.0 Add number scrolling effect](https://github.com/HongqingCao/GitDataV/tree/dev2.0)
 
-## 构建和设置
+## Build and setup
 
 ``` bash
 # install dependencies
@@ -42,46 +42,56 @@ npm run unit
 npm test
 ```
 
+## error 
 
-## 项目目录结构  
+```
+opensslErrorStack: [ 'error:03000086:digital envelope routines::initialization error' ]
+```
+
+```
+export NODE_OPTIONS=--openssl-legacy-provider
+```
+
+
+## Project directory structure  
 
 ``` bash
-├── README.md                 项目介绍
-├── vue.config.js             项目配置
-├── deploy.sh                 部署文件
-├── package.json              npm包配置文件，里面定义了项目的npm脚本，依赖包等信息
-├── src                       源码目录  
-│  ├── main.js                入口js文件
-│  ├── router.js              路由
-│  ├── store.js               vuex状态
-│  ├── app.vue                根组件
-│  ├── components             公共组件目录
-│  │  └── index.js            把全部组件遍历出来
-│  ├── lang                   语言切换字典
-│  │  └── index.js            语言切换字典
-│  ├── assets                 资源目录，这里的资源会被wabpack构建
-│  │  └── css                 css基础重置
-│  │  └── data                可视化界面需要的图片
-│  │  └── iconfont            字体图标
+├── README.md                 Project Introduction
+├── vue.config.js             Project configuration
+├── deploy.sh                 Deployment files
+├── package.json              npm package configuration file, which defines the project's npm script, dependent packages and other information
+├── src                       Source code directory  
+│  ├── main.js                Entry js file
+│  ├── router.js              routing
+│  ├── store.js               vuex status
+│  ├── app.vue                root component
+│  ├── components             Public component directory
+│  │  └── index.js            Traverse all components
+│  ├── lang                   Language switching dictionary
+│  │  └── index.js            Language switching dictionary
+│  ├── assets                 Resource directory, the resources here will be built by wabpack
+│  │  └── css                 css basic reset
+│  │  └── data                Pictures required for visual interface
+│  │  └── iconfont            Font icon
 │  │    └── bg.png
-│  └── views                  页面目录
-│    ├── app                  入口文件
-│    └── data                 可视化文件
-├── static                    纯静态资源，不会被wabpack构建。
+│  └── views                  Page directory
+│    ├── app                  Entry file
+│    └── data                 visualization file
+├── static                    Pure static resources will not be built by wabpack.
 ```
 
 ## 相关链接  
-- [《用Vue构建一个github“可视化大数据平台”-GitDataV，设计开发分享》（掘金）](https://juejin.im/post/5b7f6cd46fb9a019f709b17b)
+- ["Using Vue to build a github "visual big data platform"-GitDataV, design and development sharing" (Nuggets)](https://juejin.im/post/5b7f6cd46fb9a019f709b17b)
 
-## 技术点
-- vue（vue项目构建、指令的灵活运用、组件封装、组件之间通信）
-- vue-router(路由预备知识：hash和history区别、动态路由、路由切换传参)
-- vuex、vue-i18n(语言切换)
-- 网络请求axios(自己封装axios、跨域代理配置)
-- 可视化工具echarts、v-charts处理图形（控制大小、布局、颜色、接受数据格式）
-- es6（基础语法，比如在梳理数据过程中用到map遍历数组、对象和数组转换等等）
-- scss(配置、语法)
-- bootstrap、iconfont（用于没有设计师，作为前端设计能力有限，所以引用这两个）
+## Technical points
+- vue (vue project construction, flexible use of instructions, component encapsulation, communication between components)
+- vue-router (preliminary knowledge of routing: difference between hash and history, dynamic routing, routing switching parameters)
+- vuex, vue-i18n (language switching)
+- Network request axios (encapsulate axios yourself, cross-domain proxy configuration)
+- Visual tools echarts and v-charts handle graphics (control size, layout, color, accept data format)
+- es6 (basic syntax, such as map traversal of arrays, object and array conversion, etc. used in the process of sorting out data)
+- scss (configuration, syntax)
+- bootstrap, iconfont (used when there is no designer and the front-end design ability is limited, so these two are quoted)
 
 ## License
 
